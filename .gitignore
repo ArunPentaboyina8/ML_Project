@@ -12,3 +12,7 @@ venv/
 
 # Python package metadata
 *.egg-info/
+
+# Logs
+logs/
+*.log
