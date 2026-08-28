@@ -2,13 +2,19 @@
 
 An end-to-end Machine Learning project that predicts a student's **Mathematics Score** based on demographic, socioeconomic, and academic-performance factors.
 
-This project implements a complete Machine Learning workflow including **data ingestion, data transformation, model training, model evaluation, prediction pipeline, and web application deployment**.
+The project follows a modular Machine Learning architecture covering **data ingestion, data transformation, model training, model evaluation, prediction, and deployment**.
+
+## 🚀 Live Demo
+
+👉 **[Try the Student Exam Performance Predictor](https://mlproject-edtbc8sjszsvipe2sa9txc.streamlit.app/)**
+
+Enter the student's details and get a predicted **Math Score** directly from the deployed application.
 
 ---
 
 ## 📌 Project Overview
 
-The objective of this project is to build a Machine Learning regression model capable of predicting a student's **Math Score** using information such as:
+The objective of this project is to build a Machine Learning regression model capable of predicting a student's **Math Score** using:
 
 * Gender
 * Race/Ethnicity
@@ -18,13 +24,13 @@ The objective of this project is to build a Machine Learning regression model ca
 * Reading Score
 * Writing Score
 
-The project demonstrates how a Machine Learning model can be developed from raw data and integrated into an application for real-time predictions.
+The project demonstrates an end-to-end workflow, starting from raw data ingestion and preprocessing and ending with a deployed application for real-time predictions.
 
 ---
 
 ## 🎯 Problem Statement
 
-Predict a student's **Mathematics Score** using demographic, socioeconomic, and academic features.
+Predict a student's **Mathematics Score** based on demographic, socioeconomic, and academic features.
 
 ### Target Variable
 
@@ -34,7 +40,7 @@ Predict a student's **Mathematics Score** using demographic, socioeconomic, and 
 
 **Regression**
 
-Since the target variable is a continuous numerical score, this is treated as a regression problem.
+Since the target variable is a continuous numerical value, the problem is treated as a regression problem.
 
 ---
 
@@ -62,57 +68,56 @@ The dataset contains information about students' demographic characteristics, pa
 ## 🔄 Machine Learning Workflow
 
 ```text
-                 Raw Dataset
-                      │
-                      ▼
-               Data Ingestion
-                      │
-                      ▼
-               Train / Test Split
-                      │
-                      ▼
-             Data Transformation
-                      │
-             ┌────────┴────────┐
-             ▼                 ▼
-       Numerical Data     Categorical Data
-             │                 │
-             ▼                 ▼
-          Scaling           Encoding
-             │                 │
-             └────────┬────────┘
-                      ▼
-                Model Training
-                      │
-                      ▼
-               Model Evaluation
-                      │
-                      ▼
-                Best Model
-                      │
-                      ▼
-              Model Serialization
-                      │
-              ┌───────┴────────┐
-              ▼                ▼
-          model.pkl     preprocessor.pkl
-              │                │
-              └───────┬────────┘
-                      ▼
-              Prediction Pipeline
-                      │
-                      ▼
-                Web Application
-                      │
-                      ▼
-             🎯 Predicted Math Score
+                    Raw Dataset
+                         │
+                         ▼
+                  Data Ingestion
+                         │
+                         ▼
+                  Train/Test Split
+                         │
+                         ▼
+                 Data Transformation
+                         │
+              ┌──────────┴──────────┐
+              ▼                     ▼
+       Numerical Features    Categorical Features
+              │                     │
+              ▼                     ▼
+           Scaling               Encoding
+              │                     │
+              └──────────┬──────────┘
+                         ▼
+                   Model Training
+                         │
+                         ▼
+                  Model Evaluation
+                         │
+                         ▼
+                   Best Model
+                         │
+                         ▼
+                 Model Serialization
+                    │            │
+                    ▼            ▼
+               model.pkl   preprocessor.pkl
+                    │            │
+                    └──────┬─────┘
+                           ▼
+                  Prediction Pipeline
+                           │
+                           ▼
+                    Streamlit App
+                           │
+                           ▼
+                 🎯 Predicted Math Score
 ```
 
 ---
 
 ## 🧠 Machine Learning Models
 
-The project evaluates multiple regression algorithms to identify a suitable model for predicting student mathematics scores.
+The project evaluates multiple regression algorithms to identify the best-performing model.
 
 Models include:
 
@@ -132,7 +137,7 @@ The best-performing model is selected and saved for use in the prediction pipeli
 
 ## ⚙️ Data Preprocessing
 
-The project uses separate preprocessing strategies for numerical and categorical features.
+The project uses different preprocessing strategies for numerical and categorical features.
 
 ### Numerical Features
 
@@ -168,7 +173,7 @@ artifacts/model.pkl
 ## 📁 Project Structure
 
 ```text
-StudentMLProject/
+ML_Project/
 │
 ├── artifacts/
 │   ├── data.csv
@@ -176,6 +181,8 @@ StudentMLProject/
 │   ├── test.csv
 │   ├── model.pkl
 │   └── preprocessor.pkl
+│
+├── catboost_info/
 │
 ├── notebook/
 │   └── EDA and Model Experimentation
@@ -198,10 +205,13 @@ StudentMLProject/
 │   └── home.html
 │
 ├── app.py
+├── streamlit_app.py
 ├── requirements.txt
 ├── setup.py
 └── README.md
 ```
+
+This structure matches the files currently visible in your GitHub repository, including `artifacts`, `catboost_info`, `notebook`, `src`, `templates`, `app.py`, `streamlit_app.py`, `requirements.txt`, and `setup.py`.
 
 ---
 
@@ -229,8 +239,8 @@ StudentMLProject/
 
 ### Web Application
 
-* Flask
 * Streamlit
+* Flask
 
 ### Development Tools
 
@@ -246,13 +256,13 @@ StudentMLProject/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/ArunPentaboyina8/StudentMLProject.git
+git clone https://github.com/ArunPentaboyina8/ML_Project.git
 ```
 
 ### 2. Navigate to the project
 
 ```bash
-cd StudentMLProject
+cd ML_Project
 ```
 
 ### 3. Create a virtual environment
@@ -279,6 +289,22 @@ pip install -r requirements.txt
 
 ## ▶️ Run the Application
 
+### Streamlit Application
+
+Run:
+
+```bash
+streamlit run streamlit_app.py
+```
+
+Then open the URL provided by Streamlit.
+
+Usually:
+
+```text
+http://localhost:8501
+```
+
 ### Flask Application
 
 Run:
@@ -293,25 +319,11 @@ Then open:
 http://127.0.0.1:5000
 ```
 
-### Streamlit Application
-
-Run:
-
-```bash
-streamlit run streamlit_app.py
-```
-
-Then open the local URL displayed by Streamlit, usually:
-
-```text
-http://localhost:8501
-```
-
 ---
 
 ## 🔮 Prediction Process
 
-The application accepts the following student information:
+The application accepts:
 
 ```text
 Gender
@@ -363,15 +375,15 @@ Predicted Math Score: XX.XX
 
 ## 🧩 Project Components
 
-### Data Ingestion
+### 1. Data Ingestion
 
 Responsible for:
 
 * Reading the raw dataset
 * Creating train/test datasets
-* Saving processed datasets into the artifacts directory
+* Saving datasets into the artifacts directory
 
-### Data Transformation
+### 2. Data Transformation
 
 Responsible for:
 
@@ -381,7 +393,7 @@ Responsible for:
 * Encoding categorical variables
 * Saving the fitted preprocessor
 
-### Model Trainer
+### 3. Model Trainer
 
 Responsible for:
 
@@ -390,7 +402,7 @@ Responsible for:
 * Selecting the best-performing model
 * Saving the trained model
 
-### Prediction Pipeline
+### 4. Prediction Pipeline
 
 Responsible for:
 
@@ -399,9 +411,9 @@ Responsible for:
 * Transforming new user input
 * Generating the predicted Math Score
 
-### Web Application
+### 5. Streamlit Application
 
-Provides a user interface for entering student information and receiving a predicted Mathematics Score.
+Provides an interactive interface where users can enter student information and receive a predicted Mathematics Score.
 
 ---
 
@@ -428,6 +440,7 @@ Through this project, I gained practical experience with:
 * Flask application development
 * Streamlit application development
 * Git and GitHub
+* Machine Learning deployment
 
 ---
 
@@ -436,8 +449,9 @@ Through this project, I gained practical experience with:
 * Improve model performance through additional feature engineering
 * Perform advanced hyperparameter optimization
 * Add model explainability
-* Improve the application UI/UX
-* Deploy the application to a cloud platform
+* Improve application UI/UX
+* Add model performance metrics to the application
+* Deploy the application with a production-grade architecture
 * Add automated CI/CD
 * Add model monitoring
 
@@ -447,16 +461,22 @@ Through this project, I gained practical experience with:
 
 This project was developed as a learning implementation inspired by the **End-to-End Machine Learning Project by Krish Naik**.
 
-The project follows the modular approach demonstrated in the original project, including separate components for data ingestion, transformation, model training, and prediction. Krish Naik's public `mlproject` repository follows a similar end-to-end structure with `artifacts`, `notebook`, `src`, `templates`, `app.py`, and project configuration files.
+The project follows a modular approach with separate components for data ingestion, transformation, model training, and prediction.
 
 ---
 
 ## 👨‍💻 Author
 
-**Arun**
+### Arun
 
-🔗 GitHub:
+**GitHub:**
 https://github.com/ArunPentaboyina8
+
+**Project Repository:**
+https://github.com/ArunPentaboyina8/ML_Project
+
+**Live Application:**
+https://mlproject-edtbc8sjszsvipe2sa9txc.streamlit.app/
 
 ---
 
